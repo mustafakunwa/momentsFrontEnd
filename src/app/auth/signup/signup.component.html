@@ -1,1 +1,75 @@
-<p>signup works!</p>
+<div class="login" fxLayout="column">
+    <h1 class="login__primary">Sign Up</h1>
+    <p class="login__primary">To be a member</p>
+    <form class="login__form"  [formGroup]="form">
+      <div class="form__group">
+        <div class="login__form-group" >
+            <mat-form-field>
+                <input matInput formControlName="firstName" placeholder="First Name ">
+                <mat-error *ngIf="isControlHasError('firstName','required')" class="mat-text-warn">First Name is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('firstName','maxlength')" class="mat-text-warn">Max 50 character is allowed.
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="login__form-group">
+                <mat-form-field>
+                    <input matInput formControlName="lastName" placeholder="Last Name ">
+                    <mat-error *ngIf="isControlHasError('lastName','required')" class="mat-text-warn">Last Name is required.
+                    </mat-error>
+                    <mat-error *ngIf="isControlHasError('lastName','maxlength')" class="mat-text-warn">Max 50 character is allowed.
+                    </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="form__group">
+        <div class="login__form-group">
+            <mat-form-field>
+                <span matPrefix>+91 &nbsp;</span>
+                <input matInput formControlName="mobile" placeholder="Mobile No. ">
+                <mat-error *ngIf="isControlHasError('mobile','required')" class="mat-text-warn">Mobile is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('mobile','pattern')" class="mat-text-warn">Invalid Mobile No..
+                </mat-error>
+        </mat-form-field>
+        </div>
+        <div class="login__form-group" >
+            <mat-form-field>
+                <mat-icon matSuffix>email</mat-icon>
+                <input matInput formControlName="email" placeholder="Enter email id ">
+                <mat-error *ngIf="isControlHasError('email','required')" class="mat-text-warn">Email is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('email','email')" class="mat-text-warn">Invalid Email.
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="form__group">
+        <div class="login__form-group">
+            <mat-form-field>
+                <input matInput formControlName="city" placeholder="City ">
+                <mat-error *ngIf="isControlHasError('city','required')" class="mat-text-warn">City is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('city','maxlength')" class="mat-text-warn">Max 50 character is allowed.
+                </mat-error>
+        </mat-form-field>
+    </div>
+        <div class="login__form-group">
+            <mat-form-field>
+                <mat-icon matSuffix (click)="hide = !hide" class="cursor-pointer">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input matInput formControlName="password" placeholder="Enter Password " [type]="hide ? 'password' : 'text'">
+                <mat-error *ngIf="isControlHasError('password','required')" class="mat-text-warn">Passwod is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('password','minlength')" class="mat-text-warn">password must contain 7 character
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+        <div class="login__form-button">
+            <button mat-raised-button (click)=submit()>Sign up</button>
+        </div>
+    </form>
+    <div class="login__footer">
+        <p>already a member? <b class="cursor-pointer" (click)="signin()">Sign In</b></p>
+    </div>
+</div>

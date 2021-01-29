@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="login" fxLayout="column">
+    <h1 class="login__primary">Sign In</h1>
+    <p class="login__primary">To start using app</p>
+    <form class="login__form"  [formGroup]="form">
+        <div class="login__form-group" >
+            <mat-form-field>
+                <mat-icon matSuffix>email</mat-icon>
+                <input matInput formControlName="email" placeholder="Enter email id ">
+                <mat-error *ngIf="isControlHasError('email','required')" class="mat-text-warn">Email is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('email','email')" class="mat-text-warn">Invalid Email.
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="login__form-group">
+            <mat-form-field>
+                <mat-icon matSuffix (click)="hide = !hide" class="cursor-pointer">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input matInput formControlName="password" placeholder="Enter Password " [type]="hide ? 'password' : 'text'">
+                <mat-error *ngIf="isControlHasError('password','required')" class="mat-text-warn">Passwod is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('password','minlength')" class="mat-text-warn">password must contain 7 character
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="login__form-button">
+            <button mat-raised-button (click)=submit()>Sign In</button>
+        </div>
+    </form>
+    <div class="login__footer">
+        <p>Not a member? <b (click)="signUp()" class="cursor-pointer">Sign Up</b></p>
+    </div>
+</div>

@@ -36,6 +36,7 @@ import { LoaderInterceptorService } from './services/loader-interceptor.service'
 import { AuthGuard } from './services/authGaurd.service';
 import { AuthService } from './services/authentication.service';
 import { LoaderService } from './services/loader.service';
+import { ApiService } from './services/api.service';
 import { SnackbarService } from './shared/snacbar.service';
 
 @NgModule({
@@ -78,7 +79,8 @@ import { SnackbarService } from './shared/snacbar.service';
     AuthGuard,
     LoaderService,
     AuthService,
-    SnackbarService
+    SnackbarService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })
