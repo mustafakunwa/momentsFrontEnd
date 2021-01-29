@@ -1,1 +1,55 @@
-<p>add-moment works!</p>
+<mat-card class="heading">Add new moment</mat-card>
+
+
+<mat-card class="layout">
+    <form [formGroup]="form">
+        <div class="layout__form-group" >
+            <mat-form-field>
+                <input matInput formControlName='title'  placeholder="Title ">        
+                <mat-error *ngIf="isControlHasError('title','required')" class="mat-text-warn">Title is required.
+                </mat-error>
+                <mat-error *ngIf="isControlHasError('title','maxlength')" class="mat-text-warn">Max 100 character is allowed.
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="layout__upload">
+            <div class="layout__upload-form">
+                <div class="layout__form-group" >
+                    <mat-form-field>
+                        <mat-label>Tags</mat-label>
+                        <mat-chip-list #chipList aria-label="Tags selection">
+                          <mat-chip *ngFor="let tag of tags" [selectable]="true"
+                                   [removable]="true" (removed)="remove(tag)">
+                            {{tag}}
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <input placeholder="Tag"
+                                 [matChipInputFor]="chipList"
+                                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                 [matChipInputAddOnBlur]="true"
+                                 (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                      </mat-form-field>
+                </div>
+                <div class="layout__upload-image">
+                    <h4>Uploading</h4>
+                    <div  class="images">
+                        <div class="img" [ngStyle]="{'background-image': 'url(' + image.image + ')'}"  *ngFor="let image of images;let i=index"
+                        (click)="removeImage(i)">
+                        <span>Remove</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__upload-uploader">
+                <div class="images">
+                    <label class="pic" for="fileInput">Add Photos </label>
+                    <input id="fileInput" type='file' accept="image/*" (change)="onFileSelect($event)" multiple>
+                  </div>
+            </div>
+        </div>
+        <div class="layout__button">
+            <button mat-raised-button (click)="submit()">Submit</button>
+        </div>
+    </form>
+</mat-card>

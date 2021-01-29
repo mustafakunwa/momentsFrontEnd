@@ -4,7 +4,6 @@ import { catchError, finalize, retry, filter, take, switchMap } from 'rxjs/opera
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { AuthService } from './authentication.service';
 import { LoaderService } from './loader.service';
-import { MatDialog } from '@angular/material';
 
 @Injectable()
 
@@ -13,7 +12,6 @@ export class LoaderInterceptorService implements HttpInterceptor {
 
     constructor(private injector: Injector,
         public loaderService: LoaderService,
-        public dialog: MatDialog,
     ) { }
     auth = this.injector.get(AuthService);
 

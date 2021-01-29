@@ -21,6 +21,10 @@ export class AuthService {
         return
     }
 
+    removeuserdata() {
+        this.CookieService.removeAll();
+    }
+
     get userRole() {
         let user = JSON.parse(this.CookieService.get('momentUser'))
         return user.rolType;

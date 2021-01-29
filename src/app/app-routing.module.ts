@@ -16,6 +16,11 @@ const routes: Routes = [
         loadChildren: () => import('./admin/add-moment/add-moment.module').then(m => m.AddMomentModule)
       },
       {
+        path: 'edit-moment/:id',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./admin/add-moment/add-moment.module').then(m => m.AddMomentModule)
+      },
+      {
         path: 'moment-list',
         canActivate: [AuthGuard],
         loadChildren: () => import('./admin/momentlist/momentlist.module').then(m => m.MomentlistModule)

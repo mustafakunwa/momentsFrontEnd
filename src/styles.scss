@@ -43,6 +43,28 @@ body {
     width: 100%;
 }
 
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
+}
+.mat-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.mat-table th,
+.mat-table td {
+  padding: 0 5px !important;
+}
+.mat-table th,
+.mat-table td {
+  overflow: hidden;
+  min-width: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

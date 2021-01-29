@@ -5,7 +5,6 @@ import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { AuthService } from './authentication.service';
 import { environment } from '../../environments/environment';
 import { SnackbarService } from '../shared/snacbar.service';
-import { MatDialog } from '@angular/material';
 @Injectable()
 
 export class AuthInterceptorService implements HttpInterceptor {
@@ -13,7 +12,6 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     constructor(private injector: Injector,
         private snackbarService: SnackbarService,
-        public dialog: MatDialog,
 ) { }
     auth = this.injector.get(AuthService);
 
@@ -35,7 +33,7 @@ export class AuthInterceptorService implements HttpInterceptor {
                     this.snackbarService.openSnackBar('error', "Not Found");
                 }
                 else if (err.status == 400 || err.status == 403 || err.status == 409) {
-                    this.snackbarService.openSnackBar('error', err.error.message);
+                    this.snackbarService.openSnackBar('error', err.error);
                 }
                 else if (err.status == 500) {
                     this.snackbarService.openSnackBar('error', 'Internal Server Error');

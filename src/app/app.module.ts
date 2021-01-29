@@ -13,7 +13,8 @@ import {
   MatProgressSpinnerModule,
   MatButtonModule,
   MatToolbarModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -30,13 +31,15 @@ import { AuthService } from './services/authentication.service';
 import { LoaderService } from './services/loader.service';
 import { ApiService } from './services/api.service';
 import { SnackbarService } from './shared/snacbar.service';
+import { ConfirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpinnerComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { SnackbarService } from './shared/snacbar.service';
     MatProgressSpinnerModule,
     MatButtonModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [
     CookieService,
@@ -66,6 +70,7 @@ import { SnackbarService } from './shared/snacbar.service';
     SnackbarService,
     ApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationModalComponent]
 })
 export class AppModule { }
