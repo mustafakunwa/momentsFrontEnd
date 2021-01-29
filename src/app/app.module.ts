@@ -7,21 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {
   MatSidenavModule,
-  MatCardModule,
-  MatMenuModule,
-  MatCheckboxModule,
   MatIconModule,
-  MatButtonModule,
-  MatToolbarModule,
-  MatTabsModule,
-  MatListModule,
-  MatSlideToggleModule,
-  MatSelectModule,
   MatProgressBarModule,
   MatSnackBarModule,
   MatProgressSpinnerModule,
-  MatDialogModule,
-  MatInputModule
+  MatButtonModule,
+  MatToolbarModule,
+  MatExpansionModule
 } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -55,21 +47,13 @@ import { SnackbarService } from './shared/snacbar.service';
     ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,
-    MatCardModule,
-    MatMenuModule,
-    MatCheckboxModule,
     MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatListModule,
-    MatSlideToggleModule,
-    MatSelectModule,
     MatProgressBarModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatDialogModule,
-    MatInputModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule
   ],
   providers: [
     CookieService,

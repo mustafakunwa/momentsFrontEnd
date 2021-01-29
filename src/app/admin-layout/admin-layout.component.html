@@ -1,2 +1,26 @@
-<p>admin-layout works!</p>
-<router-outlet></router-outlet>
+<mat-drawer-container class="container" [hasBackdrop]="false">
+  <mat-drawer #drawer [mode]="'side'" class="drawer">
+      <div class="drawer__header">
+        <img src="../../assets/logo-light.png">
+        <p>Solutions</p>
+      </div>
+      <div class="drawer__menu" (click)="drawer.toggle()">
+        <a  [routerLink]="['/profile']" >Profile</a>
+        <a  [routerLink]="['/moment-list']">Moment List</a>
+        <a  [routerLink]="['/add-moment']">Add new moment</a>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar class="toolbar">
+        <button mat-icon-button (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-icon-button aria-label="Example icon-button with share icon">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
