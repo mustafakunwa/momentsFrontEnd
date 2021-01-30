@@ -134,7 +134,8 @@ export class AddMomentComponent implements OnInit {
           var reader = new FileReader();
           reader.readAsDataURL(file);
           reader.onload = (e: any) => {
-            this.images.push({ name: file.name, image: e.target.result })
+            if(this.images.length<5)
+              this.images.push({ name: file.name, image: e.target.result })
           }
         }
       }
