@@ -17,7 +17,6 @@ import {
   MatDialogModule
 } from '@angular/material';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
@@ -45,7 +44,6 @@ import { ConfirmationModalComponent } from './shared/confirmation-modal/confirma
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
